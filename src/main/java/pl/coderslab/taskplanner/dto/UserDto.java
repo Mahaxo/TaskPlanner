@@ -10,7 +10,11 @@ public class UserDto {
     @NotBlank
     private String username;
     @NotBlank
+    private String password;
+    @NotBlank
     private String firstName;
+    @NotBlank
+    private String lastName;
     @NotBlank
     @Email
     private String email;
@@ -18,10 +22,12 @@ public class UserDto {
     public UserDto() {
     }
 
-    public UserDto(Long id, @NotBlank String username, @NotBlank String firstName, @NotBlank @Email String email) {
+    public UserDto(Long id, @NotBlank String username, @NotBlank String password, @NotBlank String firstName, @NotBlank String lastName, @NotBlank @Email String email) {
         this.id = id;
         this.username = username;
+        this.password = password;
         this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
     }
 
@@ -41,12 +47,28 @@ public class UserDto {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -59,9 +81,10 @@ public class UserDto {
 
     public User toUser() {
         User user = new User();
-        user.setId(this.getId());
         user.setUsername(this.getUsername());
+        user.setPassword(this.getPassword());
         user.setFirstName(this.getFirstName());
+        user.setLastName(this.getLastName());
         user.setEmail(this.getEmail());
         return user;
     }

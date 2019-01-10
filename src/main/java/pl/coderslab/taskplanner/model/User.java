@@ -89,8 +89,11 @@ public class User {
 
     public UserDto toUserDto() {
         UserDto userDto = new UserDto();
+        userDto.setId(this.getId());
         userDto.setUsername(this.getUsername());
+        userDto.setPassword(this.getPassword());
         userDto.setFirstName(this.getFirstName());
+        userDto.setLastName(this.getLastName());
         userDto.setEmail(this.getEmail());
         return userDto;
     }
