@@ -1,5 +1,7 @@
 package pl.coderslab.taskplanner.model;
 
+import pl.coderslab.taskplanner.dto.CategoryDto;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -36,7 +38,12 @@ public class Category {
         this.name = name;
     }
 
-
+    public CategoryDto toCategoryDto() {
+        CategoryDto categoryDto = new CategoryDto();
+        categoryDto.setId(this.getId());
+        categoryDto.setName(this.getName());
+        return categoryDto;
+    }
 
 
 }

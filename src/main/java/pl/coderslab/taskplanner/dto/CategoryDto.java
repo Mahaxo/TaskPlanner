@@ -1,5 +1,7 @@
 package pl.coderslab.taskplanner.dto;
 
+import pl.coderslab.taskplanner.model.Category;
+
 import javax.validation.constraints.NotBlank;
 
 public class CategoryDto {
@@ -30,5 +32,11 @@ public class CategoryDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Category toCategory() {
+        Category category = new Category();
+        category.setName(this.getName());
+        return category;
     }
 }
